@@ -1,5 +1,6 @@
 import type { NavLink } from '@/types'
 import type { Services } from "@/types"
+import type { Quote } from "@/types"
 import services_image from "@/assets/services.png"
 
 export const navLinks: NavLink[] = [
@@ -18,7 +19,7 @@ export const services: Services = {
   image_url: services_image
 }
 
-export const fast_quote_data = {
+export const fast_quote_data: Quote = {
   text: "DO YOU NEED RESTORATION SERVICES?",
   button_text: "GET A FAST QUOTE"
 }

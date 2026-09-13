@@ -9,8 +9,8 @@ export function Header() {
   return (
     <header className="border-b border-ink-300 min-h-150 md:min-h-195 bg-[#F8FDFF] relative overflow-hidden">
       <HeaderOrbsBackground className="absolute inset-0 z-0 opacity-55" />
-      <img src={image} alt="background" className='hidden absolute top-0 right-0 z-0 min-[2200px]:block' />
       <Container className="relative z-10 flex items-center justify-between py-4">
+        <img src={image} alt="background" className='hidden absolute top-0 right-0 z-0 min-[1633px]:block' />
         <a href="/" className="text-lg font-semibold text-ink-900">
           LOGO is HERE
         </a>

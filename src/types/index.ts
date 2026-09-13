@@ -9,25 +9,14 @@ export interface Feature {
   icon: string
 }
 
-export interface Testimonial {
-  quote: string
-  author: string
-  role: string
-  avatar: string
-}
-
-export interface PricingPlan {
-  name: string
-  price: string
-  period: string
-  description: string
-  features: string[]
-  highlighted?: boolean
-}
-
 export interface Services {
   title: string
   subTitle: string
   text: string
   image_url?: string
+}
+
+export interface Quote {
+  text: string
+  button_text: string
 }
