@@ -1,6 +1,7 @@
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { Services } from './components/sections/Services'
+import { FastQuote } from './components/sections/FastQuote'
 
 function App() {
   return (
@@ -8,8 +9,8 @@ function App() {
       <Header />
       <main className="flex-1">
         <Services />
-        {/* <Features />
-        <Testimonials />
+        <FastQuote />
+        {/* <Testimonials />
         <Pricing />
         <Cta /> */}
       </main>

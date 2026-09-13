@@ -10,23 +10,6 @@ export const navLinks: NavLink[] = [
   { label: 'Contact', href: '#contact' },
 ];
 
-// export const features: Feature[] = [
-//   {
-//     title: 'Built for teams',
-//     description: 'Invite your community and collaborate in real time, from anywhere.',
-//     icon: 'users',
-//   },
-//   {
-//     title: 'Fast by default',
-//     description: 'Every interaction is optimized so your members never wait.',
-//     icon: 'zap',
-//   },
-//   {
-//     title: 'Secure & private',
-//     description: 'Your data stays yours, protected end to end.',
-//     icon: 'shield',
-//   },
-// ]
 
 export const services: Services = {
   title: '24/7 Charlotte Water Damage, Fire Damage and Mold Remediation Services',
@@ -35,35 +18,7 @@ export const services: Services = {
   image_url: services_image
 }
 
-// export const testimonials: Testimonial[] = [
-//   {
-//     quote: 'This platform completely changed how our community stays connected.',
-//     author: 'Alex Morgan',
-//     role: 'Community Lead',
-//     avatar: '/avatars/alex.jpg',
-//   },
-//   {
-//     quote: 'Setup took minutes and our members were active from day one.',
-//     author: 'Jamie Lee',
-//     role: 'Founder',
-//     avatar: '/avatars/jamie.jpg',
-//   },
-// ]
-
-// export const pricingPlans: PricingPlan[] = [
-//   {
-//     name: 'Starter',
-//     price: '$0',
-//     period: '/mo',
-//     description: 'For small communities just getting started.',
-//     features: ['Up to 100 members', 'Basic analytics', 'Community support'],
-//   },
-//   {
-//     name: 'Pro',
-//     price: '$29',
-//     period: '/mo',
-//     description: 'For growing communities that need more.',
-//     features: ['Unlimited members', 'Advanced analytics', 'Priority support', 'Custom branding'],
-//     highlighted: true,
-//   },
-// ]
+export const fast_quote_data = {
+  text: "DO YOU NEED RESTORATION SERVICES?",
+  button_text: "GET A FAST QUOTE"
+}
