@@ -57,7 +57,7 @@ export function GradientBackground({
     const scene = new THREE.Scene()
     const camera = new THREE.Camera()
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true })
+    const renderer = new THREE.WebGLRenderer({ antialias: false })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     container.appendChild(renderer.domElement)
 
@@ -100,10 +100,23 @@ export function GradientBackground({
       renderer.render(scene, camera)
       frameId = requestAnimationFrame(animate)
     }
-    animate()
+
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!frameId) animate()
+        } else {
+          cancelAnimationFrame(frameId)
+          frameId = 0
+        }
+      },
+      { threshold: 0 },
+    )
+    visibilityObserver.observe(container)
 
     return () => {
       cancelAnimationFrame(frameId)
+      visibilityObserver.disconnect()
       resizeObserver.disconnect()
       geometry.dispose()
       material.dispose()

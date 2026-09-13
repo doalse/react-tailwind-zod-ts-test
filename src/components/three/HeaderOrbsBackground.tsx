@@ -56,7 +56,7 @@ export function HeaderOrbsBackground({ className }: HeaderOrbsBackgroundProps) {
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100)
     camera.position.z = 10
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     container.appendChild(renderer.domElement)
 
@@ -145,10 +145,23 @@ export function HeaderOrbsBackground({ className }: HeaderOrbsBackgroundProps) {
       renderer.render(scene, camera)
       frameId = requestAnimationFrame(animate)
     }
-    animate()
+
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!frameId) animate()
+        } else {
+          cancelAnimationFrame(frameId)
+          frameId = 0
+        }
+      },
+      { threshold: 0 },
+    )
+    visibilityObserver.observe(container)
 
     return () => {
       cancelAnimationFrame(frameId)
+      visibilityObserver.disconnect()
       resizeObserver.disconnect()
       window.removeEventListener('pointermove', handlePointerMove)
       window.removeEventListener('pointerleave', handlePointerLeave)
