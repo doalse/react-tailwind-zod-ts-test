@@ -20,3 +20,10 @@ export interface Quote {
   text: string
   button_text: string
 }
+
+export interface ResServ {
+  title: string
+  subHeader: string
+  cards: {title: string, logo_url: string, btn_text: string}[]
+  button_text: string
+}

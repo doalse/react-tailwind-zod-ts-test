@@ -1,7 +1,12 @@
 import type { NavLink } from '@/types'
 import type { Services } from "@/types"
 import type { Quote } from "@/types"
+import type { ResServ } from "@/types"
 import services_image from "@/assets/services.png"
+import card_logo_1 from "@/assets/card-logo-1.png"
+import card_logo_2 from "@/assets/card-logo-2.png"
+import card_logo_3 from "@/assets/card-logo-3.png"
+import card_logo_4 from "@/assets/card-logo-4.png"
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '#home' },
@@ -22,4 +27,16 @@ export const services: Services = {
 export const fast_quote_data: Quote = {
   text: "DO YOU NEED RESTORATION SERVICES?",
   button_text: "GET A FAST QUOTE"
+}
+
+export const restoration_services: ResServ = {
+  title: 'Learn About Our Restoration Services',
+  subHeader: 'Sub Header Text Here',
+  cards: [
+    {title: 'Water Damage Restoration', logo_url: card_logo_1, btn_text: 'View Details'},
+    {title: 'Fire Damage Restoration', logo_url: card_logo_2, btn_text: 'View Details'},
+    {title: 'Junk Removal', logo_url: card_logo_3, btn_text: 'View Details'},
+    {title: 'Mold Remediation', logo_url: card_logo_4, btn_text: 'View Details'},
+  ],
+  button_text: 'More Services'
 }
