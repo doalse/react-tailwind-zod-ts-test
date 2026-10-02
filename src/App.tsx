@@ -3,6 +3,8 @@ import { Header } from '@/components/layout/Header'
 import { Services } from './components/sections/Services'
 import { FastQuote } from './components/sections/FastQuote'
 import { RestorationServices } from './components/sections/RestorationServices'
+import { Reviews } from './components/sections/Reviews'
+import { Professionals } from './components/sections/Professionals'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Services />
         <FastQuote />
         <RestorationServices />
+        <Reviews />
+        <Professionals />
       </main>
       <Footer />
     </div>

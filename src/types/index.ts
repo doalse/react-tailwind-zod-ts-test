@@ -27,3 +27,32 @@ export interface ResServ {
   cards: {title: string, logo_url: string, btn_text: string}[]
   button_text: string
 }
+
+export type ReviewSource = 'facebook' | 'google' | 'bbb'
+
+export interface Review {
+  author: string
+  rating: number
+  date: string
+  text: string
+  source: ReviewSource
+}
+
+export interface Reviews {
+  label: string
+  title: string
+  write_review_text: string
+  items: Review[]
+}
+
+export interface ProfessionalsTab {
+  label: string
+  title: string
+  text: string
+  image_url: string
+}
+
+export interface Professionals {
+  title: string
+  tabs: ProfessionalsTab[]
+}
