@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/Textarea'
 import { Button } from "@/components/ui/Button"
 import { contactFormSchema, type ContactFormErrors, type ContactFormValues } from '@/lib/schemas'
 import { formatPhoneNumber } from '@/lib/utils'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const initialValues: ContactFormValues = { name: '', email: '', phone: '', message: '' }
 
@@ -14,6 +15,7 @@ export function Services() {
   const [values, setValues] = useState<ContactFormValues>(initialValues)
   const [errors, setErrors] = useState<ContactFormErrors>({})
   const [submitted, setSubmitted] = useState(false)
+  const sectionRef = useScrollReveal<HTMLElement>()
 
   function handleChange(field: keyof ContactFormValues) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -42,20 +44,20 @@ export function Services() {
   }
 
   return (
-    <section id="community" className="relative overflow-hidden border-y border-ink-300 py-16">
+    <section ref={sectionRef} id="community" className="relative overflow-hidden border-b border-ink-300 py-20 md:py-28 lg:py-36">
       <GradientBackground className="absolute inset-0 z-0 opacity-30" />
       <Container className='relative z-10 text-center'>
-        <h2 className='text-center text-4xl md:text-6xl text-indigo-900 font-bold mb-10 leading-normal'>{services.title}</h2>
-        <p className='text-center font-bold subtitle inline-block text-2xl mb-20'>{services.subTitle}</p>
-        <div className="flex flex-col md:flex-row gap-10">
-          <div className='w-full md:w-1/2 flex flex-col'>
+        <h2 data-reveal="up" className='text-center text-3xl sm:text-4xl lg:text-6xl text-indigo-900 font-bold mb-6 md:mb-10 leading-tight lg:leading-normal'>{services.title}</h2>
+        <p data-reveal="up" className='text-center font-bold subtitle inline-block text-lg md:text-2xl mb-12 md:mb-20'>{services.subTitle}</p>
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+          <div data-reveal="left" className='w-full lg:w-1/2 flex flex-col'>
             <img src={services.image_url} alt="image" className='mb-10' />
-            <p className='font-bold font-black text-2xl'>{services.text}</p>
+            <p className='font-black text-lg md:text-xl lg:text-2xl'>{services.text}</p>
           </div>
-          <div className='w-full md:w-1/2'>
-            <form onSubmit={handleSubmit} noValidate className="bg-violet-500 flex flex-col px-7 py-12 rounded-4xl">
-              <span className='text-center text-white font-bold text-4xl uppercase'>Contact Us</span>
-              <span className='text-center text-white text-2xl mb-10'>Available 24 Hours, 7 Days a Week</span>
+          <div data-reveal="right" className='w-full lg:w-1/2'>
+            <form onSubmit={handleSubmit} noValidate className="bg-violet-500 flex flex-col px-5 py-8 md:px-7 md:py-12 rounded-4xl">
+              <span className='text-center text-white font-bold text-3xl md:text-4xl uppercase'>Contact Us</span>
+              <span className='text-center text-white text-lg md:text-2xl mb-6 md:mb-10'>Available 24 Hours, 7 Days a Week</span>
 
               <Input
                 type="text"
@@ -94,7 +96,7 @@ export function Services() {
               />
               {errors.message && <p className='text-left text-red-200 text-sm mb-4'>{errors.message}</p>}
 
-              <Button type="submit" variant="white" className='w-1/2 flex m-auto h-15'>Send massage</Button>
+              <Button type="submit" variant="white" className='w-full sm:w-1/2 flex m-auto h-15'>Send massage</Button>
 
               {submitted && (
                 <p className='text-center text-white font-bold mt-5'>Thanks! We'll be in touch soon.</p>

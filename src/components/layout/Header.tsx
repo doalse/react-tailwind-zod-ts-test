@@ -7,7 +7,7 @@ import { HeaderOrbsBackground } from '@/components/three/HeaderOrbsBackground'
 
 export function Header() {
   return (
-    <header className="border-b border-ink-300 min-h-150 md:min-h-195 bg-[#F8FDFF] relative overflow-hidden">
+    <header className="min-h-150 md:min-h-160 lg:min-h-195 bg-[#F8FDFF] relative overflow-hidden">
       <HeaderOrbsBackground className="absolute inset-0 z-0 opacity-55" />
       <Container className="relative z-10 flex items-center justify-between py-4">
         <img src={image} alt="background" className='hidden absolute top-0 right-0 z-0 min-[1633px]:block' />
@@ -15,12 +15,12 @@ export function Header() {
           LOGO is HERE
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 md:flex lg:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-base text-ink-900 transition-colors hover:underline"
+              className="text-sm text-ink-900 transition-colors hover:underline lg:text-base"
             >
               {link.label}
             </a>

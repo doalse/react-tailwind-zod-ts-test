@@ -5,6 +5,9 @@ import { FastQuote } from './components/sections/FastQuote'
 import { RestorationServices } from './components/sections/RestorationServices'
 import { Reviews } from './components/sections/Reviews'
 import { Professionals } from './components/sections/Professionals'
+import { Process } from './components/sections/Process'
+import { Faq } from './components/sections/Faq'
+import { Experience } from './components/sections/Experience'
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
         <RestorationServices />
         <Reviews />
         <Professionals />
+        <Process />
+        <Faq />
+        <Experience />
       </main>
       <Footer />
     </div>

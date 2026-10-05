@@ -4,6 +4,10 @@ import type { Quote } from "@/types"
 import type { ResServ } from "@/types"
 import type { Reviews } from "@/types"
 import type { Professionals } from "@/types"
+import type { Process } from "@/types"
+import type { Faq } from "@/types"
+import type { Experience } from "@/types"
+import type { FooterData } from "@/types"
 import services_image from "@/assets/services.png"
 import prof_image_1 from "@/assets/image2.png"
 import card_logo_1 from "@/assets/card-logo-1.png"
@@ -83,4 +87,58 @@ export const professionals: Professionals = {
       image_url: prof_image_1,
     },
   ],
+}
+
+const process_step_text =
+  "If you need help, don't hesitate to give us a call. We're available 24/7 to assist you. Whether you need us immediately or have a general restoration question, we are happy to help."
+
+export const restoration_process: Process = {
+  label: 'Our Process',
+  title: 'Our 3 Step Restoration Process',
+  steps: [
+    { title: 'Give Us a Call', text: process_step_text, color: 'sky' },
+    { title: 'We Get On Site ASAP', text: process_step_text, color: 'orange' },
+    { title: 'Your Life, Restored', text: process_step_text, color: 'purple' },
+  ],
+}
+
+const faq_answer =
+  'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor'
+
+export const faq: Faq = {
+  title: 'Frequently Asked Questions',
+  button_text: 'More Questions',
+  items: [
+    { question: 'Are you Licensed and insured?', answer: faq_answer },
+    { question: 'Do you offer free quotes?', answer: faq_answer },
+    { question: 'Is NoCode the future of the web?', answer: faq_answer },
+    { question: 'What type of equipment do you use?', answer: faq_answer },
+    { question: 'What payment methods do you accept?', answer: faq_answer },
+    { question: 'Who are the Webflow founders?', answer: faq_answer },
+  ],
+}
+
+const experience_text =
+  'We Are Available Around The Clock To Assist You In Anyway Possible. We Are Proud To Also Offer 100% Customer Satisfaction Guarantee!'
+
+export const experience: Experience = {
+  title: 'The Sunshine Restoration Experience',
+  cards: [
+    { title: 'Customer Service', text: experience_text, icon: 'headset', color: 'sky' },
+    { title: 'Fast, Free Estimates', text: experience_text, icon: 'clipboard', color: 'purple' },
+    { title: 'Locally Owned', text: experience_text, icon: 'pin', color: 'orange' },
+    { title: 'Residential & Commercial', text: experience_text, icon: 'home', color: 'green' },
+  ],
+}
+
+export const footer: FooterData = {
+  links: [
+    { label: 'Home', href: '#home' },
+    { label: 'About Us', href: '#about_us' },
+    { label: 'How it Work', href: '#how_it_works' },
+    { label: 'Services', href: '#services' },
+    { label: 'Jobs', href: '#jobs' },
+    { label: 'Contact', href: '#contact' },
+  ],
+  socials: ['facebook', 'twitter', 'youtube'],
 }

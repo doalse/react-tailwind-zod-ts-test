@@ -32,6 +32,13 @@
   }
 }
 
+/* Button defaults live in the components layer so any utility passed via className overrides them */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-medium transition-colors;
+  }
+}
+
 .subtitle {
   position: relative;
 }
@@ -63,8 +70,6 @@
     display: none;
   }
 }
-
-
 
 @keyframes fade-in {
   from {

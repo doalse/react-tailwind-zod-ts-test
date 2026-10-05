@@ -56,3 +56,49 @@ export interface Professionals {
   title: string
   tabs: ProfessionalsTab[]
 }
+
+export type ProcessStepColor = 'sky' | 'orange' | 'purple'
+
+export interface ProcessStep {
+  title: string
+  text: string
+  color: ProcessStepColor
+}
+
+export interface Process {
+  label: string
+  title: string
+  steps: ProcessStep[]
+}
+
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
+export interface Faq {
+  title: string
+  button_text: string
+  items: FaqItem[]
+}
+
+export type ExperienceIcon = 'headset' | 'clipboard' | 'pin' | 'home'
+
+export interface ExperienceCard {
+  title: string
+  text: string
+  icon: ExperienceIcon
+  color: 'sky' | 'purple' | 'orange' | 'green'
+}
+
+export interface Experience {
+  title: string
+  cards: ExperienceCard[]
+}
+
+export type SocialNetwork = 'facebook' | 'twitter' | 'youtube'
+
+export interface FooterData {
+  links: NavLink[]
+  socials: SocialNetwork[]
+}

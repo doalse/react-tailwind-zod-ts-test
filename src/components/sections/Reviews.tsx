@@ -4,6 +4,7 @@ import type { Review, ReviewSource } from '@/types'
 import { cn } from '@/lib/utils'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 import { BbbIcon, ChevronLeftIcon, ChevronRightIcon, FacebookIcon, GoogleIcon, StarIcon } from '../ui/icons'
 
 type Tab = 'all' | ReviewSource
@@ -86,6 +87,7 @@ export function Reviews() {
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(false)
   const trackRef = useRef<HTMLUListElement>(null)
+  const sectionRef = useScrollReveal<HTMLElement>()
 
   const visibleReviews = filterReviews(activeTab)
   const rating = averageRating(visibleReviews)
@@ -115,12 +117,12 @@ export function Reviews() {
   }
 
   return (
-    <section id="reviews" className="relative overflow-hidden py-36 bg-indigo-50/40">
+    <section ref={sectionRef} id="reviews" className="relative overflow-hidden py-20 md:py-28 lg:py-36 bg-indigo-50/40">
       <Container className="flex flex-col">
-        <span className="text-center text-3xl font-bold text-slate-600">{reviews.label}</span>
-        <h2 className="mb-16 text-center text-4xl md:text-6xl text-indigo-900 font-bold leading-normal">{reviews.title}</h2>
+        <span data-reveal="up" className="text-center text-xl md:text-3xl font-bold text-slate-600">{reviews.label}</span>
+        <h2 data-reveal="up" className="mb-10 md:mb-16 text-center text-3xl sm:text-4xl lg:text-6xl text-indigo-900 font-bold leading-tight lg:leading-normal">{reviews.title}</h2>
 
-        <div className="rounded-xl bg-indigo-50">
+        <div data-reveal="up" className="rounded-xl bg-indigo-50">
           <div role="tablist" className="flex gap-8 overflow-x-auto border-b border-gray-300 px-6">
             {tabs.map((tab) => {
               const tabRating = averageRating(filterReviews(tab.id))
@@ -158,7 +160,7 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="relative mt-6">
+        <div data-reveal="up" className="relative mt-6">
           <ul
             ref={trackRef}
             onScroll={updateArrows}
@@ -173,7 +175,7 @@ export function Reviews() {
             <button
               type="button"
               aria-label="Previous reviews"
-              className="absolute top-1/2 left-2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-gray-500/80 text-white transition-colors hover:bg-gray-700"
+              className="absolute top-1/2 -left-4 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-gray-500/90 text-white shadow-lg transition-colors hover:bg-gray-700"
               onClick={() => scrollByPage(-1)}
             >
               <ChevronLeftIcon className="size-5" />
@@ -183,7 +185,7 @@ export function Reviews() {
             <button
               type="button"
               aria-label="Next reviews"
-              className="absolute top-1/2 right-2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-gray-500/80 text-white transition-colors hover:bg-gray-700"
+              className="absolute top-1/2 -right-4 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-gray-500/90 text-white shadow-lg transition-colors hover:bg-gray-700"
               onClick={() => scrollByPage(1)}
             >
               <ChevronRightIcon className="size-5" />
