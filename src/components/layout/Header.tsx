@@ -11,7 +11,15 @@ export function Header() {
       <HeaderOrbsBackground className="absolute inset-0 z-0 opacity-55" />
       <Container className="relative z-10 flex items-center justify-between py-4">
         <img src={image} alt="background" className='hidden absolute top-0 right-0 z-0 min-[1633px]:block' />
-        <a href="/" className="text-lg font-semibold text-ink-900">
+        <a
+          href={import.meta.env.BASE_URL}
+          onClick={(e) => {
+            // Stay on the page: on GitHub Pages "/" would leave the site
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+          className="text-lg font-semibold text-ink-900"
+        >
           LOGO is HERE
         </a>
 
